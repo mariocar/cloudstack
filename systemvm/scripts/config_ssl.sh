@@ -178,6 +178,7 @@ if [ -f "$customCACert" ]
 then
   keytool -delete -alias $aliasName -keystore $keyStore -storepass $storepass -noprompt
   keytool -import -alias $aliasName -keystore $keyStore -storepass $storepass -noprompt -file $customCACert
+  keytool -import -alias ${aliasName}CHAIN -keystore $keyStore -storepass $storepass -noprompt -file $customCertChain
 fi
 
 if [ -d /etc/apache2 ]
